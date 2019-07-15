@@ -23,7 +23,7 @@
 })(this, function (global) {
     "use strict"; 
     var breeze = {
-        version: "1.7.1",
+        version: "1.7.99",
         metadataVersion: "1.0.5"
     };
     ;/**
@@ -16339,7 +16339,7 @@ breeze.SaveOptions = SaveOptions;
 
   var ctor = function AjaxAngularAdapter() {
     this.name = "angular";
-    this.defaultSettings = { };
+    this.defaultSettings = {};
     this.requestInterceptor = null;
     // Will set:
     //   this.$http;
@@ -16398,7 +16398,7 @@ breeze.SaveOptions = SaveOptions;
       var compositeConfig = core.extend({}, this.defaultSettings);
       ngConfig = core.extend(compositeConfig, ngConfig);
       // extend is shallow; extend headers separately
-      var headers =core.extend({}, this.defaultSettings.headers); // copy default headers 1st
+      var headers = core.extend({}, this.defaultSettings.headers); // copy default headers 1st
       ngConfig.headers = core.extend(headers, ngConfig.headers);
     }
 
@@ -16412,24 +16412,49 @@ breeze.SaveOptions = SaveOptions;
       responseError: responseErrorFn      // adapter's error callback (ng 1.6+)
     }
 
+    //
+    // NOTE:
+    // updated request interceptor that uses a callback to send the actual request
+    // so the headers can be changed from a callback/promise as well.
     if (core.isFunction(this.requestInterceptor)) {
-      this.requestInterceptor(requestInfo);
+      // This request intercepter alwasy return a promiss instead of nothing...
+      this.requestInterceptor(requestInfo, function (newRequestInfo) {
+        var adapter = newRequestInfo.adapter;
+        
+        if (newRequestInfo.config) { // exists unless requestInterceptor killed it.
+          var prom = adapter.$http(newRequestInfo.config);
+          if (prom.success) {            
+            // response for ng < 1.6        
+            prom.success(newRequestInfo.success).error(newRequestInfo.error);
+          } else {            
+            // response for ng 1.6+
+            prom.then(newRequestInfo.responseSuccess).catch(newRequestInfo.responseError);
+          }
+          adapter.$rootScope && adapter.$rootScope.$digest();
+        }
+      });
+
       if (this.requestInterceptor.oneTime) {
         this.requestInterceptor = null;
       }
     }
+    else {
 
-    if (requestInfo.config) { // exists unless requestInterceptor killed it.
-      var prom = this.$http(requestInfo.config);
-      if (prom.success) {
-        // response for ng < 1.6        
-        prom.success(requestInfo.success).error(requestInfo.error);
-      } else {
-        // response for ng 1.6+
-        prom.then(requestInfo.responseSuccess).catch(requestInfo.responseError);
+      // Call directly
+      if (requestInfo.config) { // exists unless requestInterceptor killed it.
+        var prom = this.$http(requestInfo.config);
+        if (prom.success) {
+          // response for ng < 1.6        
+          prom.success(requestInfo.success).error(requestInfo.error);
+        } else {
+          // response for ng 1.6+
+          prom.then(requestInfo.responseSuccess).catch(requestInfo.responseError);
+        }
+        this.$rootScope && this.$rootScope.$digest();
       }
-      this.$rootScope && this.$rootScope.$digest();
     }
+
+
 
     function responseSuccessFn(response) {
       return successFn(response.data, response.status, response.headers, response.config, response.statusText);
