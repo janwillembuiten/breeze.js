@@ -53,6 +53,7 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "core",
             "name": "core"
         }
-    ]
+    ],
+    "elements": []
 } };
 });

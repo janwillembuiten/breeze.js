@@ -290,6 +290,7 @@
         "core": {
             "name": "core",
             "submodules": {},
+            "elements": {},
             "classes": {
                 "Enum": 1,
                 "EnumSymbol": 1,
@@ -304,6 +305,7 @@
         "breeze": {
             "name": "breeze",
             "submodules": {},
+            "elements": {},
             "classes": {
                 "config": 1,
                 "Validator": 1,
@@ -905,6 +907,7 @@
             "description": "This is an simply api documentation for the CommonJS A Promises specification as it is used within Breeze."
         }
     },
+    "elements": {},
     "classitems": [
         {
             "file": "a05_enum.js",
@@ -1117,18 +1120,15 @@
                     "type": "Object"
                 },
                 {
-                    "name": "defaultErrorCallback",
-                    "description": "If omitted then subscriber notification failures will be ignored.\n\nerrorCallback([e])",
-                    "type": "Function",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "e",
-                            "description": "Any error encountered during subscription execution.",
-                            "type": "Error",
-                            "optional": true
-                        }
-                    ]
+                    "name": "[defaultErrorCallback]  If omitted then subscriber notification failures will be ignored.\n\nerrorCallback([e]",
+                    "description": ")",
+                    "type": "Function"
+                },
+                {
+                    "name": "defaultErrorCallback.e",
+                    "description": "Any error encountered during subscription execution.",
+                    "type": "Error",
+                    "optional": true
                 }
             ],
             "class": "Event",
@@ -1159,18 +1159,15 @@
                     "optdefault": "false"
                 },
                 {
-                    "name": "errorCallback",
-                    "description": "Will be called for any errors that occur during publication. If omitted,\nerrors will be eaten.\n\nerrorCallback([e])",
-                    "type": "Function",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "e",
-                            "description": "Any error encountered during publication execution.",
-                            "type": "Error",
-                            "optional": true
-                        }
-                    ]
+                    "name": "[errorCallback]  Will be called for any errors that occur during publication. If omitted,\nerrors will be eaten.\n\nerrorCallback([e]",
+                    "description": ")",
+                    "type": "Function"
+                },
+                {
+                    "name": "errorCallback.e",
+                    "description": "Any error encountered during publication execution.",
+                    "type": "Error",
+                    "optional": true
                 }
             ],
             "return": {
@@ -1197,18 +1194,15 @@
                     "type": "Object"
                 },
                 {
-                    "name": "errorCallback",
-                    "description": "Will be called for any errors that occur during publication. If omitted,\nerrors will be eaten.\n\nerrorCallback([e])",
-                    "type": "Function",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "e",
-                            "description": "Any error encountered during publication execution.",
-                            "type": "Error",
-                            "optional": true
-                        }
-                    ]
+                    "name": "[errorCallback]  Will be called for any errors that occur during publication. If omitted,\nerrors will be eaten.\n\nerrorCallback([e]",
+                    "description": ")",
+                    "type": "Function"
+                },
+                {
+                    "name": "errorCallback.e",
+                    "description": "Any error encountered during publication execution.",
+                    "type": "Error",
+                    "optional": true
                 }
             ],
             "class": "Event",
@@ -1226,18 +1220,15 @@
             "name": "subscribe",
             "params": [
                 {
-                    "name": "callback",
-                    "description": "Will be called whenever 'data' is published for this event.\n\ncallback([data])",
-                    "type": "Function",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "data",
-                            "description": "Whatever 'data' was published.  This should be documented on the specific event.",
-                            "type": "Object",
-                            "optional": true
-                        }
-                    ]
+                    "name": "[callback]  Will be called whenever 'data' is published for this event.\n\ncallback([data]",
+                    "description": ")",
+                    "type": "Function"
+                },
+                {
+                    "name": "callback.data",
+                    "description": "Whatever 'data' was published.  This should be documented on the specific event.",
+                    "type": "Object",
+                    "optional": true
                 }
             ],
             "return": {
@@ -4355,32 +4346,26 @@
                     "type": "DataService|String"
                 },
                 {
-                    "name": "callback",
-                    "description": "Function called on success.\n\nsuccessFunction([data])",
-                    "type": "Function",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "data",
-                            "description": "",
-                            "type": "RawMetadata",
-                            "optional": true
-                        }
-                    ]
+                    "name": "[callback]  Function called on success.\n\nsuccessFunction([data]",
+                    "description": ")",
+                    "type": "Function"
                 },
                 {
-                    "name": "errorCallback",
-                    "description": "Function called on failure.\n\nfailureFunction([error])",
-                    "type": "Function",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "error",
-                            "description": "Any error that occured wrapped into an Error object.",
-                            "type": "Error",
-                            "optional": true
-                        }
-                    ]
+                    "name": "callback.data",
+                    "description": "",
+                    "type": "RawMetadata",
+                    "optional": true
+                },
+                {
+                    "name": "[errorCallback]  Function called on failure.\n\nfailureFunction([error]",
+                    "description": ")",
+                    "type": "Function"
+                },
+                {
+                    "name": "errorCallback.error",
+                    "description": "Any error that occured wrapped into an Error object.",
+                    "type": "Error",
+                    "optional": true
                 }
             ],
             "return": {
@@ -7930,32 +7915,26 @@
             "async": 1,
             "params": [
                 {
-                    "name": "callback",
-                    "description": "Function called on success.\n\nsuccessFunction([schema])",
-                    "type": "Function",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "schema",
-                            "description": "The raw Schema object from metadata provider - Because this schema will differ depending on the metadata provider\nit is usually better to access metadata via the 'metadataStore' property of the EntityManager after this method's Promise or callback completes.",
-                            "type": "Object",
-                            "optional": true
-                        }
-                    ]
+                    "name": "[callback]  Function called on success.\n\nsuccessFunction([schema]",
+                    "description": ")",
+                    "type": "Function"
                 },
                 {
-                    "name": "errorCallback",
-                    "description": "Function called on failure.\n\nfailureFunction([error])",
-                    "type": "Function",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "error",
-                            "description": "Any error that occured wrapped into an Error object.",
-                            "type": "Error",
-                            "optional": true
-                        }
-                    ]
+                    "name": "callback.schema",
+                    "description": "The raw Schema object from metadata provider - Because this schema will differ depending on the metadata provider\nit is usually better to access metadata via the 'metadataStore' property of the EntityManager after this method's Promise or callback completes.",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "[errorCallback]  Function called on failure.\n\nfailureFunction([error]",
+                    "description": ")",
+                    "type": "Function"
+                },
+                {
+                    "name": "errorCallback.error",
+                    "description": "Any error that occured wrapped into an Error object.",
+                    "type": "Error",
+                    "optional": true
                 }
             ],
             "return": {
@@ -7985,81 +7964,71 @@
                     "type": "EntityQuery|String"
                 },
                 {
-                    "name": "callback",
-                    "description": "Function called on success.\n\nsuccessFunction([data])",
-                    "type": "Function",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "data",
-                            "description": "",
-                            "type": "Object",
-                            "props": [
-                                {
-                                    "name": "results",
-                                    "description": "",
-                                    "type": "Array of Entity"
-                                },
-                                {
-                                    "name": "query",
-                                    "description": "The original query",
-                                    "type": "EntityQuery"
-                                },
-                                {
-                                    "name": "entityManager",
-                                    "description": "The EntityManager.",
-                                    "type": "EntityManager"
-                                },
-                                {
-                                    "name": "httpResponse",
-                                    "description": "The HttpResponse returned from the server.",
-                                    "type": "HttpResponse"
-                                },
-                                {
-                                    "name": "inlineCount",
-                                    "description": "Only available if 'inlineCount(true)' was applied to the query.  Returns the count of\nitems that would have been returned by the query before applying any skip or take operators, but after any filter/where predicates\nwould have been applied.",
-                                    "type": "Integer"
-                                },
-                                {
-                                    "name": "retrievedEntities",
-                                    "description": "All entities returned by the query.  Differs from results when .expand() is used.",
-                                    "type": "Array of Entity"
-                                }
-                            ]
-                        }
-                    ]
+                    "name": "[callback]  Function called on success.\n\nsuccessFunction([data]",
+                    "description": ")",
+                    "type": "Function"
                 },
                 {
-                    "name": "errorCallback",
-                    "description": "Function called on failure.\n\nfailureFunction([error])",
-                    "type": "Function",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "error",
-                            "description": "Any error that occured wrapped into an Error object.",
-                            "type": "Error",
-                            "optional": true,
-                            "props": [
-                                {
-                                    "name": "query",
-                                    "description": "The query that caused the error.",
-                                    "optional": true
-                                },
-                                {
-                                    "name": "entityManager",
-                                    "description": "The query that caused the error.",
-                                    "optional": true
-                                },
-                                {
-                                    "name": "httpResponse",
-                                    "description": "The HttpResponse returned from the server.",
-                                    "type": "HttpResponse",
-                                    "optional": true
-                                }
-                            ]
-                        }
-                    ]
+                    "name": "callback.data",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback.data.results",
+                    "description": "",
+                    "type": "Array of Entity"
+                },
+                {
+                    "name": "callback.data.query",
+                    "description": "The original query",
+                    "type": "EntityQuery"
+                },
+                {
+                    "name": "callback.data.entityManager",
+                    "description": "The EntityManager.",
+                    "type": "EntityManager"
+                },
+                {
+                    "name": "callback.data.httpResponse",
+                    "description": "The HttpResponse returned from the server.",
+                    "type": "HttpResponse"
+                },
+                {
+                    "name": "callback.data.inlineCount",
+                    "description": "Only available if 'inlineCount(true)' was applied to the query.  Returns the count of\nitems that would have been returned by the query before applying any skip or take operators, but after any filter/where predicates\nwould have been applied.",
+                    "type": "Integer"
+                },
+                {
+                    "name": "callback.data.retrievedEntities",
+                    "description": "All entities returned by the query.  Differs from results when .expand() is used.",
+                    "type": "Array of Entity"
+                },
+                {
+                    "name": "[errorCallback]  Function called on failure.\n\nfailureFunction([error]",
+                    "description": ")",
+                    "type": "Function"
+                },
+                {
+                    "name": "errorCallback.error",
+                    "description": "Any error that occured wrapped into an Error object.",
+                    "type": "Error",
+                    "optional": true
+                },
+                {
+                    "name": "errorCallback.error.query",
+                    "description": "The query that caused the error.",
+                    "optional": true
+                },
+                {
+                    "name": "errorCallback.error.entityManager",
+                    "description": "The query that caused the error.",
+                    "optional": true
+                },
+                {
+                    "name": "errorCallback.error.httpResponse",
+                    "description": "The HttpResponse returned from the server.",
+                    "type": "HttpResponse",
+                    "optional": true
                 }
             ],
             "return": {
@@ -8121,72 +8090,62 @@
                     "optional": true
                 },
                 {
-                    "name": "callback",
-                    "description": "Function called on success.\n\nsuccessFunction([saveResult])",
-                    "type": "Function",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "saveResult",
-                            "description": "",
-                            "type": "Object",
-                            "optional": true,
-                            "props": [
-                                {
-                                    "name": "entities",
-                                    "description": "The saved entities - with any temporary keys converted into 'real' keys.\nThese entities are actually references to entities in the EntityManager cache that have been updated as a result of the\nsave.",
-                                    "type": "Array of Entity",
-                                    "optional": true
-                                },
-                                {
-                                    "name": "keyMappings",
-                                    "description": "Each keyMapping has the following properties: 'entityTypeName', 'tempValue' and 'realValue'",
-                                    "type": "Array of keyMappings",
-                                    "optional": true
-                                },
-                                {
-                                    "name": "httpResponse",
-                                    "description": "The raw HttpResponse returned from the server.",
-                                    "type": "HttpResponse",
-                                    "optional": true
-                                }
-                            ]
-                        }
-                    ]
+                    "name": "[callback]  Function called on success.\n\nsuccessFunction([saveResult]",
+                    "description": ")",
+                    "type": "Function"
                 },
                 {
-                    "name": "errorCallback",
-                    "description": "Function called on failure.\n\nfailureFunction([error])",
-                    "type": "Function",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "error",
-                            "description": "Any error that occured wrapped into an Error object.",
-                            "type": "Error",
-                            "optional": true,
-                            "props": [
-                                {
-                                    "name": "entityErrors",
-                                    "description": "These are typically validation errors but are generally any error that can be easily isolated to a single entity.",
-                                    "type": "Array of server side errors",
-                                    "optional": true
-                                },
-                                {
-                                    "name": "httpResponse",
-                                    "description": "The raw HttpResponse returned from the server.",
-                                    "type": "HttpResponse",
-                                    "optional": true
-                                },
-                                {
-                                    "name": "saveResult",
-                                    "description": "Some dataservice adapters return a 'saveResult' object\nwhen the failing save operation is non-transactional meaning some entities could be saved while others were not.\nThe 'saveResult' object identifies both that entities that were saved (with their keyMapping)\nand that entities that were not saved (with their errors).",
-                                    "type": "Object",
-                                    "optional": true
-                                }
-                            ]
-                        }
-                    ]
+                    "name": "callback.saveResult",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "callback.saveResult.entities",
+                    "description": "The saved entities - with any temporary keys converted into 'real' keys.\nThese entities are actually references to entities in the EntityManager cache that have been updated as a result of the\nsave.",
+                    "type": "Array of Entity",
+                    "optional": true
+                },
+                {
+                    "name": "callback.saveResult.keyMappings",
+                    "description": "Each keyMapping has the following properties: 'entityTypeName', 'tempValue' and 'realValue'",
+                    "type": "Array of keyMappings",
+                    "optional": true
+                },
+                {
+                    "name": "callback.saveResult.httpResponse",
+                    "description": "The raw HttpResponse returned from the server.",
+                    "type": "HttpResponse",
+                    "optional": true
+                },
+                {
+                    "name": "[errorCallback]  Function called on failure.\n\nfailureFunction([error]",
+                    "description": ")",
+                    "type": "Function"
+                },
+                {
+                    "name": "errorCallback.error",
+                    "description": "Any error that occured wrapped into an Error object.",
+                    "type": "Error",
+                    "optional": true
+                },
+                {
+                    "name": "errorCallback.error.entityErrors",
+                    "description": "These are typically validation errors but are generally any error that can be easily isolated to a single entity.",
+                    "type": "Array of server side errors",
+                    "optional": true
+                },
+                {
+                    "name": "errorCallback.error.httpResponse",
+                    "description": "The raw HttpResponse returned from the server.",
+                    "type": "HttpResponse",
+                    "optional": true
+                },
+                {
+                    "name": "errorCallback.error.saveResult",
+                    "description": "Some dataservice adapters return a 'saveResult' object\nwhen the failing save operation is non-transactional meaning some entities could be saved while others were not.\nThe 'saveResult' object identifies both that entities that were saved (with their keyMapping)\nand that entities that were not saved (with their errors).",
+                    "type": "Object",
+                    "optional": true
                 }
             ],
             "return": {
